@@ -29,11 +29,43 @@ controller, Claude reads one index and goes directly to the right file.
 
 ---
 
+## First-Run: Inject Hook into CLAUDE.md
+
+The **very first time** this skill runs on a project (i.e. no `PROJECT_INDEX.md`
+exists yet), Claude must also inject a persistent hook into the project's
+`CLAUDE.md` so the index is checked automatically on every future session —
+without the user needing to remember to ask.
+
+**Step 1:** Run the indexer:
+```bash
+python scripts/index-project.py
+```
+
+**Step 2:** Inject the hook into `CLAUDE.md`. The script handles this
+automatically via the `--inject-claude-md` flag (already called internally).
+But if running manually, Claude should check whether `CLAUDE.md` already
+contains the marker `<!-- project-indexer -->`. If not, append the block below:
+
+```markdown
+<!-- project-indexer -->
+## Session Start — Project Index
+Before any task, always check `PROJECT_INDEX.md` in the project root.
+- If it does not exist or source files are newer than it → run: `python scripts/index-project.py`
+- Never explore `.next/`, `vendor/`, `node_modules/`, `dist/`, `build/`, `.git/`
+- Use the index to locate files directly instead of scanning the filesystem
+<!-- /project-indexer -->
+```
+
+**This injection is idempotent** — the script checks for the marker and never
+duplicates the block.
+
+---
+
 ## Session Start Workflow
 
 ```
 1. Does PROJECT_INDEX.md exist?
-   ├── No  → run: python scripts/index-project.py
+   ├── No  → run: python scripts/index-project.py  (also injects CLAUDE.md hook)
    └── Yes → is it stale?
               ├── Stale → run: python scripts/index-project.py
               └── Fresh → read PROJECT_INDEX.md and proceed
