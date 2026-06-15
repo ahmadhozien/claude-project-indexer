@@ -4,7 +4,9 @@
 
 | Plugin name | Install command | What it does |
 |---|---|---|
-| `project-indexer` | `/plugin install project-indexer@hozien/claude-project-indexer` | Auto-indexes any project at session start; prevents blind file-system scanning |
+| `project-indexer` | `/plugin install project-indexer@claude-project-indexer` | Auto-indexes any project at session start; prevents blind file-system scanning |
+
+> First add the marketplace: `/plugin marketplace add ahmadhozien/claude-project-indexer`. The install suffix `@claude-project-indexer` is the marketplace name (from `.claude-plugin/marketplace.json`), not the GitHub repo.
 
 ## Description
 

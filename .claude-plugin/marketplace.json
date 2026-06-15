@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
+  "name": "claude-project-indexer",
+  "owner": {
+    "name": "Ahmad Hozien"
+  },
+  "description": "Auto-indexing tools for Claude Code that map any project before work begins.",
+  "version": "1.0.0",
+  "plugins": [
+    {
+      "name": "project-indexer",
+      "source": "./",
+      "description": "Auto-indexes any project at session start; prevents blind file-system scanning by building and maintaining a PROJECT_INDEX.md. Supports Laravel, Next.js, fullstack, Vue, Nuxt, Node, Python, and generic projects.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Ahmad Hozien"
+      },
+      "homepage": "https://github.com/ahmadhozien/claude-project-indexer",
+      "repository": "https://github.com/ahmadhozien/claude-project-indexer",
+      "license": "MIT",
+      "keywords": ["indexing", "codebase", "token-savings", "laravel", "nextjs"]
+    }
+  ]
+}

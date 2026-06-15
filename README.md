@@ -30,17 +30,21 @@ with purpose labels — so it reads one file instead of scanning hundreds.
 ### Method 1 — Plugin (recommended)
 
 ```bash
-/plugin install project-indexer@hozien/claude-project-indexer
+# 1. Add the marketplace (GitHub repo)
+/plugin marketplace add ahmadhozien/claude-project-indexer
+
+# 2. Install the plugin (suffix is the marketplace name)
+/plugin install project-indexer@claude-project-indexer
 ```
 
 ### Method 2 — Manual
 
 ```bash
 # Clone into your global Claude skills folder
-git clone https://github.com/hozien/claude-project-indexer.git ~/.claude/skills/claude-project-indexer
+git clone https://github.com/ahmadhozien/claude-project-indexer.git ~/.claude/skills/claude-project-indexer
 
 # Or for a single project only
-git clone https://github.com/hozien/claude-project-indexer.git .claude/skills/claude-project-indexer
+git clone https://github.com/ahmadhozien/claude-project-indexer.git .claude/skills/claude-project-indexer
 ```
 
 > **Windows path:** `C:\Users\<YourName>\.claude\skills\claude-project-indexer`

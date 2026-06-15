@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin.json",
+  "name": "project-indexer",
+  "description": "Auto-indexes any project at session start; prevents blind file-system scanning by building and maintaining a PROJECT_INDEX.md. Supports Laravel, Next.js, fullstack, Vue, Nuxt, Node, Python, and generic projects.",
+  "version": "1.0.0",
+  "author": {
+    "name": "hozien"
+  },
+  "homepage": "https://github.com/ahmadhozien/claude-project-indexer",
+  "repository": "https://github.com/ahmadhozien/claude-project-indexer",
+  "license": "MIT"
+}
