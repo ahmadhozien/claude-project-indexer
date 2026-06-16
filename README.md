@@ -53,12 +53,17 @@ git clone https://github.com/ahmadhozien/claude-project-indexer.git .claude/skil
 
 ## Usage
 
-Once installed, Claude Code activates the skill automatically. At the start of
-each session it will:
+Once installed, a `SessionStart` hook (`hooks/hooks.json`) runs the indexer
+**automatically at the start of every session** — no need to ask. It:
 
-1. Check if `PROJECT_INDEX.md` exists and is up to date
-2. Run `python scripts/index-project.py` if missing or stale
-3. Read the index and use it for all file lookups
+1. Runs `index-project.py` against your project root (`${CLAUDE_PROJECT_DIR}`)
+2. Writes/refreshes `PROJECT_INDEX.md`
+3. Injects a session-start reminder into your `CLAUDE.md` so Claude reads the
+   index before any file lookup
+
+> **Requires `python` (or the `py` launcher) on your system PATH.** The hook is
+> silent on success; if Python isn't found, nothing happens and no index is
+> generated. Verify with `python --version` in a normal terminal.
 
 You can also trigger it manually:
 
